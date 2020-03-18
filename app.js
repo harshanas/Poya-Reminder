@@ -71,6 +71,11 @@ app.post('/webhook', (request, response) => {
     }else{
         messageText = "Please use the buttons in the menu to access the bot";
         messageData = {"messaging_type": "RESPONSE", "recipient": {"id": senderID}, "message": {"text": messageText }}
+        messenger.sendMessage(messageData).then(function(resp){
+            console.log(resp.data);
+        }).catch(function(error){
+            console.log(error.data);
+        })
     }
 
     
